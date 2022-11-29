@@ -1,6 +1,7 @@
 import React from "react";
 import roleList from "./RoleList";
 import Home from "../views/Home/Home";
+import Map from "../views/map/Map";
 
 export default [
   {
@@ -11,4 +12,12 @@ export default [
       roleList.CONNECTED
     ],
   },
+  {
+    component: <Map />,
+    path: "/map",
+    title: "Map view",
+    permission: [
+      roleList.CONNECTED
+    ],
+  }
 ]
