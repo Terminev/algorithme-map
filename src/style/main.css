@@ -1,0 +1,197 @@
+@import '~leaflet/dist/leaflet.css';
+body {
+  margin: 0;
+}
+
+.color-error {
+  color: red;
+}
+
+.page-connection {
+  background-color: #090754;
+  height: 100vh;
+  position: relative;
+}
+.page-connection .section-login {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+.page-connection .section-login img {
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+.page-connection .section-login-form {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 40px 48px;
+  width: 450px;
+}
+.page-connection .login-form {
+  text-align: center;
+}
+.page-connection .login-form-title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.page-connection .login-form label {
+  display: block;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+.page-connection .login-form input {
+  padding: 5px 15px;
+}
+.page-connection .login-form button {
+  padding: 15px 30px;
+  border: 1px solid #090754;
+  border-radius: 8px;
+  background-color: #090754;
+  color: #FFFFFF;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: 0.3s;
+}
+.page-connection .login-form button:hover {
+  background-color: #FFFFFF;
+  color: #090754;
+  border: solid 1px #090754;
+}
+
+h1 {
+  font-family: "Poligon Medium";
+  font-size: 34px;
+  line-height: 44px;
+}
+h1 .lighter {
+  font-family: "Poligon Regular";
+}
+
+h2 {
+  font-family: "Poligon Regular";
+  font-size: 34px;
+  line-height: 44px;
+}
+h2 .lighter {
+  font-family: "Poligon Regular";
+}
+
+h3 {
+  font-family: "Poligon Medium";
+  font-size: 28px;
+  line-height: 36px;
+}
+h3 .lighter {
+  font-family: "Poligon Regular";
+}
+
+h4 {
+  font-family: "Poligon Medium";
+  font-size: 24px;
+  line-height: 31px;
+}
+h4 .lighter {
+  font-family: "Poligon Regular";
+}
+
+p.text-primary, input.text-primary, a.text-primary, button.text-primary, textarea.text-primary, span.text-primary, label.text-primary, th.text-primary, td.text-primary {
+  font-size: 16px;
+  font-family: "Poligon Regular";
+  line-height: 21px;
+}
+p.text-primary.paragraph_bold, input.text-primary.paragraph_bold, a.text-primary.paragraph_bold, button.text-primary.paragraph_bold, textarea.text-primary.paragraph_bold, span.text-primary.paragraph_bold, label.text-primary.paragraph_bold, th.text-primary.paragraph_bold, td.text-primary.paragraph_bold {
+  font-family: "Poligon Medium";
+}
+
+p.text-secondary, input.text-secondary, a.text-secondary, button.text-secondary, textarea.text-secondary, span.text-secondary, label.text-secondary, th.text-secondary, td.text-secondary {
+  font-size: 16px;
+  font-family: "Poligon Regular";
+  line-height: 21px;
+}
+p.text-secondary.paragraph_bold, input.text-secondary.paragraph_bold, a.text-secondary.paragraph_bold, button.text-secondary.paragraph_bold, textarea.text-secondary.paragraph_bold, span.text-secondary.paragraph_bold, label.text-secondary.paragraph_bold, th.text-secondary.paragraph_bold, td.text-secondary.paragraph_bold {
+  font-family: "Poligon Medium";
+}
+
+p.text-tertiary, input.text-tertiary, a.text-tertiary, button.text-tertiary, textarea.text-tertiary, span.text-tertiary, label.text-tertiary, th.text-tertiary, td.text-tertiary {
+  font-size: 14px;
+  font-family: "Poligon Regular";
+  line-height: 21px;
+}
+p.text-tertiary.paragraph_bold, input.text-tertiary.paragraph_bold, a.text-tertiary.paragraph_bold, button.text-tertiary.paragraph_bold, textarea.text-tertiary.paragraph_bold, span.text-tertiary.paragraph_bold, label.text-tertiary.paragraph_bold, th.text-tertiary.paragraph_bold, td.text-tertiary.paragraph_bold {
+  font-family: "Poligon Medium";
+}
+
+p.text-micro, input.text-micro, a.text-micro, button.text-micro, textarea.text-micro, span.text-micro, label.text-micro, th.text-micro, td.text-micro {
+  font-size: 12px;
+  font-family: "Poligon Regular";
+  line-height: 21px;
+}
+p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.paragraph_bold, button.text-micro.paragraph_bold, textarea.text-micro.paragraph_bold, span.text-micro.paragraph_bold, label.text-micro.paragraph_bold, th.text-micro.paragraph_bold, td.text-micro.paragraph_bold {
+  font-family: "Poligon Medium";
+}
+
+@font-face {
+  font-family: "Poligon Medium";
+  src: url("./../assets/fonts/Poligon Medium.otf");
+}
+@font-face {
+  font-family: "Poligon Bold";
+  src: url("./../assets/fonts/Poligon Bold.otf");
+}
+@font-face {
+  font-family: "Poligon Regular";
+  src: url("./../assets/fonts/Poligon Regular.otf");
+}
+@font-face {
+  font-family: "DM sans";
+  src: url("./../assets/fonts/DMSans-Regular.ttf");
+}
+.section-home {
+  background-color: #090754;
+  min-height: 100vh;
+  width: 100%;
+  color: #FFFFFF;
+}
+.section-home h2 {
+  margin: 0;
+  padding: 30px;
+}
+.section-home-container {
+  padding-block: 20px;
+  background-color: #FFFFFF;
+  border-radius: 9px;
+  gap: 20px;
+  width: 95%;
+  margin: 20px auto;
+  text-align: center;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+.section-home-container div {
+  border-radius: 9px;
+  width: 250px;
+  cursor: pointer;
+  min-height: 100px;
+}
+.section-home-container div a {
+  background-color: #FFFFFF;
+  color: #000;
+  text-decoration: none;
+}
+.section-home-container div:hover {
+  background-color: #EFF4FF;
+}
+.section-home-container div:hover a {
+  color: #000;
+}
+
+.section-map-container {
+  width: 100%;
+  height: 100vh;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,49 @@
+$title: ("h1" : 34, "h2" : 34, "h3" : 28, "h4" : 24);
+@each $name, $size in $title {
+  #{$name} {
+    .lighter{
+      font-family: "Poligon Regular";
+    }
+    @if ($name == "h2") {
+      font-family: "Poligon Regular";
+    } @else {
+      font-family: "Poligon Medium";
+    }
+    $line_height: null;
+    font-size: #{$size}px;
+    @if ($size == 28) {
+      $line_height: 8;
+    } @else if ($size == 24) {
+      $line_height: 7;
+    } @else {
+      $line_height: 10;
+    }
+    line-height: #{$size + $line_height}px;
+  }
+}
+
+
+
+
+//Function all paragraph
+$paragraph: ("text-primary" : 16, "text-secondary" : 16, "text-tertiary" : 14, "text-micro" : 12);
+@each $name, $size in $paragraph {
+  p, input,a,button,textarea,span,label, th, td{
+    &.#{$name} {
+      font-size: #{$size}px;
+      font-family: "Poligon Regular";
+      @if ($name == "paragraph-secondary") {
+        line-height: 32px;
+      } @else {
+        line-height: 21px;
+      }
+      &.paragraph_bold {
+        @if ($name == "paragraph-micro") {
+          font-family: "Poligon Bold";
+        } @else {
+          font-family: "Poligon Medium";
+        }
+      }
+    }
+  }
+}
