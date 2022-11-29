@@ -5,7 +5,6 @@ import PrivateRoutes from "./PrivateRoutes";
 
 
 const Router = () => {
-  console.log(isLoggedIn())
   return (
     <>
       {isLoggedIn() ? <PrivateRoutes/> : <div className={"page-connection"}><Login /></div>}

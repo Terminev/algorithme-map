@@ -7,7 +7,6 @@ function PrivateRoutes() {
   let allowedRoutes = [];
   let allowedSidebar = [];
   allowedRoutes = PrivateRouteConfig;
-  console.log(allowedRoutes)
 
   return (
     <>

@@ -6,7 +6,6 @@ function MapAllowedRoutes({routes, isAddNotFound}) {
   <Router>
     <Routes>
       {routes.map((route) => {
-        console.log(route)
         const {
           path,
           component: Component,
