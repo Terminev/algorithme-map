@@ -194,6 +194,40 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  font-family: "Poligon Regular";
+}
+.section-map-container h4 {
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  background-color: #cfcef4;
+  color: black;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  z-index: 999;
+  border-radius: 9px;
+}
+.section-map-container h3 {
+  color: #090754;
+}
+.section-map-container ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.section-map-container ul li {
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  background-color: #090754;
+  border-radius: 16px;
+  margin: 10px;
+  width: 200px;
 }
 .section-map-container .mapLeaflet {
   grid-column: 2/4;
@@ -201,6 +235,46 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 .section-map-container .mapLeaflet .map {
   width: 100%;
   height: 100%;
+}
+.section-map-container .container-right, .section-map-container .list-restaurant, .section-map-container .list-user {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.section-map-container .list-restaurant li:hover {
+  cursor: pointer;
+  background-color: #cfcef4;
+  color: #090754;
+}
+.section-map-container .container-right {
+  justify-content: space-between;
+}
+.section-map-container .container-right .button-leave {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.section-map-container .container-right .list-user {
+  height: 60vh;
+  border-bottom: 1px #090754 solid;
+}
+.section-map-container .container-right .chat-box {
+  margin: 10px 0;
+}
+.section-map-container .container-right .chat-box ul {
+  height: 30vh;
+}
+.section-map-container .container-right .chat-box ul li {
+  font-size: 14px;
+  color: black;
+  padding: 5px;
+  background-color: #cfcef4;
+  border-radius: 5px;
+  margin: 2px;
+  display: grid;
+}
+.section-map-container .container-right .chat-box ul li span {
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=main.css.map */

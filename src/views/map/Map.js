@@ -6,10 +6,11 @@ import MapLeaflet from './partials/MapLeaflet';
 
 const Map = () =>  (
     <div className={'section-map-container'} >
+      <h4>Rendez-vous à 13h : tu dois partir à 8h</h4>
       <ListRestaurant />
       <MapLeaflet  />
-      <div>
-        <button>Leave</button>
+      <div className='container-right'>
+        <button className='button-leave'>QUITTER</button>
         <ListUser />
         <Chatbox />
       </div>
