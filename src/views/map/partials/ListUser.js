@@ -7,7 +7,6 @@ export const ListUser = (room) => {
     if(room.room.length > 0) {
       setUsers(room.room[0]["users"])
     }
-
   }, [room.room])
 
   return(

@@ -5,6 +5,7 @@ import ListUser from './partials/ListUser';
 import MapLeaflet from './partials/MapLeaflet';
 import socketIO from 'socket.io-client';
 import {useParams} from "react-router-dom";
+import { Appointment } from './partials/Appointment';
 const socket = socketIO.connect('http://localhost:4000');
 
 const Map = () =>  {
@@ -18,7 +19,7 @@ const Map = () =>  {
 
   return (
     <div className={'section-map-container'} >
-      <h4>Rendez-vous à 13h : tu dois partir à 8h</h4>
+      <Appointment room={room} />
       <ListRestaurant />
       <MapLeaflet room={room}/>
       <div className='container-right'>
@@ -28,8 +29,6 @@ const Map = () =>  {
       </div>
     </div>
   )
-
-
 };
 
 export default Map;

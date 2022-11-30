@@ -35,6 +35,7 @@ const MapLeaflet = (room) => {
               const marker = markerRef.current
               if (marker != null) {
                 setPosition(marker.getLatLng())
+                localStorage.setItem("appointmentPosition", position);
                 console.log(position)
               }
             },
