@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, Navigate, useNavigate} from "react-router-dom";
 import socketIO from 'socket.io-client';
 const socket = socketIO.connect('http://localhost:4000');
 
 const Home = () => {
-  const [openModal, setOpenModal] = React.useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [userPosition, setUserPosition] = useState([0,0])
   const navigate = useNavigate()
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setUserPosition([position.coords.latitude, position.coords.longitude])
+    })
+  },[])
 
   const fakeData = [
     {
@@ -41,9 +48,11 @@ const Home = () => {
         nameRoom : roomName,
         nameUser: localStorage.getItem('pseudo'),
         idUser: `${socket.id}${Math.random()}`,
-        // positionUser: ,
-        // positionRestau: ,
+        positionUser: userPosition,
+        positionRestau: [0,0]
       })
+      navigate(`/map/${roomId}`)
+
     }
 
   return (

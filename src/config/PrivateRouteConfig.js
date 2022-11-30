@@ -14,7 +14,7 @@ export default [
   },
   {
     component: <Map />,
-    path: "/map",
+    path: "/map/:id",
     title: "Map view",
     permission: [
       roleList.CONNECTED
