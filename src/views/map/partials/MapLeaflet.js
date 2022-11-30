@@ -71,25 +71,24 @@ const MapLeaflet = (dataRoom) => {
       }
     
       return (
-        <div >
-          <MapContainer className={"section-map-container"} center={[48.890011, 2.197020]} zoom={13} scrollWheelZoom={false}>
+        <div className={"mapLeaflet"}>
+          <MapContainer className={'map'} center={[48.890011, 2.197020]} zoom={13} scrollWheelZoom={false}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {
-              Restaurants.features.map((restaurant, index) => {
+              Restaurants.map((restaurant, index) => {
                 return (
-                  <Marker icon={ICON_RESTAU} key={index} position={[restaurant.geometry.coordinates[0], restaurant.geometry.coordinates[1]]}>
+                  <Marker icon={ICON_RESTAU} key={index} position={[restaurant.coordinates[0], restaurant.coordinates[1]]}>
                     <Popup>
-                      {restaurant.properties.NAME}
+                      {restaurant.name}
                     </Popup>
                   </Marker>
                 )
               })
             }
             <DraggableMarker />
-
             <Polyline pathOptions={blueOptions} positions={[userPosition, [48.892670, 2.237030], position]} />
     
           </MapContainer>

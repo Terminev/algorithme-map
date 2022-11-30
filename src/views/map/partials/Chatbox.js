@@ -24,24 +24,29 @@ const Chatbox = () => {
     setMessage('');
   };
   return (
-    <>
-      { allMessage.map(message =>  (
-          <p>{message.text}</p>
-        )
-      ) }
-      <div className="chat__footer">
+    <div className={"chat-box"}>
         <form className="form" onSubmit={handleSendMessage}>
           <input
             type="text"
-            placeholder="Write message"
+            placeholder="Ton message"
             className="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button className="sendBtn">SEND</button>
+          <button className="sendBtn">ENVOYER</button>
         </form>
-      </div>
-    </>
+      <ul>
+      { allMessage.map(message =>  (
+          <li>
+            <span>De {message.name}</span>
+            {message.text}
+          </li>
+        )
+      ) }
+      </ul>
+      
+      
+    </div>
     
   );
 }
