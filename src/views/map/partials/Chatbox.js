@@ -11,7 +11,7 @@ const Chatbox = (room) => {
     if(room.room.length > 0) {
       setAllMessage(room.room[0].messages)
     }
-  }, [socket, allMessage]);
+  }, [room.room]);
 
   const [message, setMessage] = useState("");
 
@@ -44,7 +44,7 @@ const Chatbox = (room) => {
       { allMessage.map(message =>  (
           <li>
             <span>De {message.name}</span>
-            {message.text}
+            {message.message}
           </li>
         )
       ) }
