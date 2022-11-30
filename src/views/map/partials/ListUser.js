@@ -15,7 +15,7 @@ export const ListUser = (room) => {
       <h3>Liste des utilisateurs</h3>
       <ul>
         {
-          users.map(user => (<li>{user.name}</li>))
+          users.map((user,index) => (<li key={index}>{user.name}</li>))
         }
       </ul>
     </div>

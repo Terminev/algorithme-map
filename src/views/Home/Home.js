@@ -42,14 +42,13 @@ const Home = () => {
     ]
 
     const joinRoom = (roomId, roomName) => {
-      console.log('room')
       socket.emit('onJoin', {
         idRoom : roomId,
         nameRoom : roomName,
         nameUser: localStorage.getItem('pseudo'),
         idUser: `${socket.id}${Math.random()}`,
         positionUser: userPosition,
-        positionRestau: [0,0]
+        positionRestau: null,
       })
       navigate(`/map/${roomId}`)
 
