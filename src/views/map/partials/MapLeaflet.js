@@ -2,9 +2,6 @@ import React, {useEffect, useState, useRef, useMemo, useCallback} from 'react'
 import {MapContainer, Marker, Popup, TileLayer, Polyline} from "react-leaflet";
 import {Restaurants} from "../../../config/Restaurant"
 import {ICON_RESTAU, ICON_DESTINATION, ICON_USER} from '../partials/MarkerIcon'
-import { icon } from "leaflet";
-import {useParams} from "react-router-dom";
-import login from "../../login/Login";
 
 
 const MapLeaflet = (room) => {
