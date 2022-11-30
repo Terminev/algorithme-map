@@ -24,12 +24,12 @@ const Chatbox = () => {
     setMessage('');
   };
   return (
-    <>
+    <div className={"Chatbox"}>
       { allMessage.map(message =>  (
           <p>{message.text}</p>
         )
       ) }
-      <div className="chat__footer">
+      <div>
         <form className="form" onSubmit={handleSendMessage}>
           <input
             type="text"
@@ -41,7 +41,7 @@ const Chatbox = () => {
           <button className="sendBtn">SEND</button>
         </form>
       </div>
-    </>
+    </div>
     
   );
 }

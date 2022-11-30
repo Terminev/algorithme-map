@@ -41,8 +41,8 @@ const Home = () => {
         nameRoom : roomName,
         nameUser: localStorage.getItem('pseudo'),
         idUser: `${socket.id}${Math.random()}`,
-        positionUser: ,
-        positionRestau: ,
+        // positionUser: ,
+        // positionRestau: ,
       })
     }
 

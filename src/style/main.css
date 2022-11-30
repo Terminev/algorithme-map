@@ -192,6 +192,15 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 .section-map-container {
   width: 100%;
   height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.section-map-container .mapLeaflet {
+  grid-column: 2/4;
+}
+.section-map-container .mapLeaflet .map {
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */
