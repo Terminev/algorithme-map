@@ -16,15 +16,22 @@ const Map = () =>  {
     setRoom(dataRoom.filter(room => room.idRoom === parseInt(id)))
   }, [socket, dataRoom])
 
+  const leaveRoom = () => {
+    socket.emit('leaveRoom', {
+      idRoom: parseInt(id),
+      nameUser: localStorage.getItem('pseudo')
+    })
+  }
+
   return (
     <div className={'section-map-container'} >
       <h4>Rendez-vous à 13h : tu dois partir à 8h</h4>
       <ListRestaurant />
       <MapLeaflet room={room}/>
       <div className='container-right'>
-        <button className='button-leave'>QUITTER</button>
+        <button className='button-leave' onClick={() => leaveRoom()}>QUITTER</button>
         <ListUser room={room} />
-        <Chatbox />
+        <Chatbox room={room} />
       </div>
     </div>
   )
