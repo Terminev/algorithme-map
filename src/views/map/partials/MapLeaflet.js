@@ -3,20 +3,23 @@ import {MapContainer, Marker, Popup, TileLayer, Polyline} from "react-leaflet";
 import {Restaurants} from "../../../config/Restaurant"
 import {ICON_RESTAU, ICON_DESTINATION, ICON_USER} from '../partials/MarkerIcon'
 import { icon } from "leaflet";
+import {useParams} from "react-router-dom";
+import login from "../../login/Login";
 
 
-const MapLeaflet = () => {
+const MapLeaflet = (dataRoom) => {
+  const {id} = useParams()
     const [userPosition, setUserPosition] = React.useState([0,0]);
     const [position, setPosition] = useState(userPosition)
     const blueOptions = {color: "blue"}
-
+    const [room, setRoom] = useState([])
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
           setUserPosition([position.coords.latitude, position.coords.longitude])
           setPosition([position.coords.latitude, position.coords.longitude])
         })
-    
-      }, [])
+      setRoom(dataRoom.dataRoom.filter(room => room.idRoom === parseInt(id)))
+      }, [dataRoom])
     
       //calculer la distance en km entre deux points
       /*const CalculateDistance = () => {
@@ -27,17 +30,8 @@ const MapLeaflet = () => {
         let d = 6371 * c
         console.log(d)
       }*/
-    
-      //Tracer la route entre deux points
-      const TracePath = () => {
-        const polyline = [
-          [51.505, -0.09],
-          [51.51, -0.1],
-          [51.51, -0.12],
-        ]
-      }
-    
-    
+
+      console.log(room)
       const DraggableMarker = () => {
         const [draggable, setDraggable] = useState(false)
     
@@ -95,6 +89,7 @@ const MapLeaflet = () => {
               })
             }
             <DraggableMarker />
+
             <Polyline pathOptions={blueOptions} positions={[userPosition, [48.892670, 2.237030], position]} />
     
           </MapContainer>
