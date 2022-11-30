@@ -2,7 +2,7 @@ import React from "react";
 import MapAllowedRoutes from "./routes/MapAllowedRoutes";
 import PrivateRouteConfig from "../config/PrivateRouteConfig";
 
-function PrivateRoutes() {
+function PrivateRoutes({socket}) {
 
   let allowedRoutes = [];
   let allowedSidebar = [];
@@ -15,6 +15,7 @@ function PrivateRoutes() {
           routes={allowedRoutes}
           basePath="/"
           isAddNotFound
+          socket={socket}
         />
       </div>
     </>

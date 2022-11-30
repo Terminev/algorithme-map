@@ -4,10 +4,10 @@ import Login from "../views/login/Login";
 import PrivateRoutes from "./PrivateRoutes";
 
 
-const Router = () => {
+const Router = ({socket}) => {
   return (
     <>
-      {isLoggedIn() ? <PrivateRoutes/> : <div className={"page-connection"}><Login /></div>}
+      {isLoggedIn() ? <PrivateRoutes socket={socket}/> : <div className={"page-connection"}><Login /></div>}
     </>
   );
 };

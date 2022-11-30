@@ -1,7 +1,7 @@
 import React, {memo} from "react";
 import {Route, Routes, BrowserRouter as Router} from "react-router-dom";
 
-function MapAllowedRoutes({routes, isAddNotFound}) {
+function MapAllowedRoutes({routes, isAddNotFound, socket}) {
   return (
   <Router>
     <Routes>
@@ -20,6 +20,7 @@ function MapAllowedRoutes({routes, isAddNotFound}) {
             key={path}
             path={path}
             element={Component}
+            socket={socket}
           />
         )
       })}
