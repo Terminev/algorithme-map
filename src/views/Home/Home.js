@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link, Navigate, useNavigate} from "react-router-dom";
+import socketIO from 'socket.io-client';
+const socket = socketIO.connect('http://localhost:4000');
 
 const Home = () => {
   const [openModal, setOpenModal] = React.useState(false);
@@ -32,6 +34,18 @@ const Home = () => {
     }
     ]
 
+    const joinRoom = (roomId, roomName) => {
+      console.log('room')
+      socket.emit('onJoin', {
+        idRoom : roomId,
+        nameRoom : roomName,
+        nameUser: localStorage.getItem('pseudo'),
+        idUser: `${socket.id}${Math.random()}`,
+        // positionUser: ,
+        // positionRestau: ,
+      })
+    }
+
   return (
     <div className={"section-home"}>
       <h2>Liste des Room</h2>
@@ -39,10 +53,8 @@ const Home = () => {
         {
           fakeData.map((room) => {
             return (
-              <div className={"section-home-container-room"}>
-                <Link to={`/room/${room.id}`} key={room.id}>
+              <div className={"section-home-container-room"} key={room.id} onClick={() => joinRoom(room.id, room.name)}>
                     <h3>{room.name}</h3>
-                </Link>
               </div>
             )
           })
