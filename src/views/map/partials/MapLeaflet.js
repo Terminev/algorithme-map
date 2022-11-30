@@ -7,19 +7,17 @@ import {useParams} from "react-router-dom";
 import login from "../../login/Login";
 
 
-const MapLeaflet = (dataRoom) => {
-  const {id} = useParams()
+const MapLeaflet = (room) => {
     const [userPosition, setUserPosition] = React.useState([0,0]);
     const [position, setPosition] = useState(userPosition)
     const blueOptions = {color: "blue"}
-    const [room, setRoom] = useState([])
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
           setUserPosition([position.coords.latitude, position.coords.longitude])
           setPosition([position.coords.latitude, position.coords.longitude])
         })
-      setRoom(dataRoom.dataRoom.filter(room => room.idRoom === parseInt(id)))
-      }, [dataRoom])
+      }, [room])
     
       //calculer la distance en km entre deux points
       /*const CalculateDistance = () => {
@@ -30,8 +28,6 @@ const MapLeaflet = (dataRoom) => {
         let d = 6371 * c
         console.log(d)
       }*/
-
-      console.log(room)
       const DraggableMarker = () => {
         const [draggable, setDraggable] = useState(false)
     
