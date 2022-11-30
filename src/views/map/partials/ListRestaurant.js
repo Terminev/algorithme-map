@@ -1,8 +1,9 @@
 import React from 'react'
 import {Restaurants} from "../../../config/Restaurant"
+import {useParams} from "react-router-dom";
 
 export const ListRestaurant = () => {
-
+  const {id} = useParams()
   const selectRestaurant = (idRestau, coordinatesRestau) => {
     console.log(idRestau, coordinatesRestau)
   }

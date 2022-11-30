@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef, useMemo, useCallback} from 'react'
+import React, {useEffect, useState, useRef, useMemo} from 'react'
 import {MapContainer, Marker, Popup, TileLayer, Polyline} from "react-leaflet";
 import {Restaurants} from "../../../config/Restaurant"
 import {ICON_RESTAU, ICON_DESTINATION, ICON_USER} from '../partials/MarkerIcon'
@@ -26,7 +26,6 @@ const MapLeaflet = (room) => {
         console.log(d)
       }*/
       const DraggableMarker = () => {
-        const [draggable, setDraggable] = useState(false)
     
         const markerRef = useRef(null)
         const eventHandlers = useMemo(
@@ -41,23 +40,15 @@ const MapLeaflet = (room) => {
           }),
           [],
         )
-        const toggleDraggable = useCallback(() => {
-          setDraggable((d) => !d)
-        }, [])
     
         return (
           <Marker
             icon={ICON_DESTINATION}
-            draggable={draggable}
+            draggable={true}
             eventHandlers={eventHandlers}
             position={position}
             ref={markerRef}>
             <Popup minWidth={90}>
-            <span onClick={toggleDraggable}>
-              {draggable
-                ? 'Le marker est déplaçable'
-                : 'Cliquez pour déplacer le marker'}
-            </span>
             </Popup>
           </Marker>
         )
