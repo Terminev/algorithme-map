@@ -54,7 +54,7 @@ const Home = () => {
 	const {handleChange, values, touched, errors, handleBlur, handleSubmit} = useFormik({
 		initialValues: {
 			name: "",
-			date: ""
+			date: "",
 		}, validationSchema: AddRoomValidationSchema ,onSubmit,
 	});
 
@@ -64,16 +64,16 @@ const Home = () => {
 			<section className={"section-home-container"}>
 				<button onClick={() => setOpenModal(!openModal)}>Ajouter une salle</button>
 				<ul className={"section-home-container-room"}>
-				{ rooms.length > 0 ?
-					rooms.map((room) => {
-						return (
-							<li key={room.idRoom} onClick={() => joinRoom(room.idRoom, room.nameRoom)}>{room.nameRoom}</li>
-						)
-					})
+					{ rooms.length > 0 ?
+						rooms.map((room) => {
+							return (
+								<li key={room.idRoom} onClick={() => joinRoom(room.idRoom, room.nameRoom)}>{room.nameRoom}</li>
+							)
+						})
 
-					:
-					<li className={'no-room'}>Il n'y a aucune salle</li>
-				}
+						:
+						<li className={'no-room'}>Il n'y a aucune salle</li>
+					}
 				</ul>
 			</section>
 
@@ -107,50 +107,6 @@ const Home = () => {
 										value={values.date}
 										label={"date"}
 										placeholder={"date"}
-									/>
-
-								</div>
-									<ButtonWithOnClickAction
-										title={"Suivant"}
-										isActive={true}
-										styleButton={"btn-default btn-default-primary color-primary btn-default-full-width"}
-									/>
-							</form>
-						</div>
-					</div>
-				)
-			}
-
-			{
-				openModal && (
-					<div className={"modal"}>
-						<div className={"modal-container"}>
-							<img src={"/images/black-cross.png"} onClick={()=> setOpenModal(!openModal)}/>
-							<h3>Ajouter une Room</h3>
-							<form onSubmit={handleSubmit}>
-								<div className={"form-row-element form-row-single-element"}>
-									<InputTextWithLabelFormik
-										id={"name"}
-										errorMessage={errors.name && touched.name &&
-											<p className={"text-primary color-error"}>{errors.name}</p>}
-										onBlur={handleBlur}
-										onChange={handleChange}
-										value={values.name}
-										label={"name"}
-										placeholder={"name"}
-										name={"name"}
-										styleSelected={"input-text-custom-secondary " + (errors.name && touched.name ? "input-error" : "")}
-									/>
-									<input
-										type="time"
-										id={"date"}
-										name={"date"}
-										onBlur={handleBlur}
-										onChange={handleChange}
-										value={values.date}
-										label={"date"}
-										placeholder={"date"}
-
 									/>
 
 								</div>
