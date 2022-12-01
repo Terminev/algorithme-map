@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react'
 import {MapContainer, Marker, Polyline, Popup, TileLayer} from "react-leaflet";
 import {Restaurants} from "../../../config/Restaurant"
-import {ICON_DESTINATION, ICON_RESTAU, ICON_USER} from '../partials/MarkerIcon'
+import {ICON_DESTINATION, ICON_RESTAU, ICON_USER, colorPolyline} from '../partials/MarkerIcon'
 import socketIO from 'socket.io-client';
 import {useParams} from "react-router-dom";
 import {toast, ToastContainer} from "react-toastify";
@@ -95,7 +95,7 @@ const MapLeaflet = (room) => {
                       icon={ICON_USER}
                       position={[user.positionUser[0], user.positionUser[1]]}
                   />
-                  <Polyline key={index} pathOptions={blueOptions} positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
+                  <Polyline key={index} pathOptions={colorPolyline(index)} positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
 
 
                 </>
