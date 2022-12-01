@@ -94,7 +94,11 @@ const MapLeaflet = (room) => {
                   <Marker
                       icon={ICON_USER}
                       position={[user.positionUser[0], user.positionUser[1]]}
-                  />
+                  >
+                    <Popup>
+                      {user.name}
+                    </Popup>
+                  </Marker>
                   <Polyline key={index} pathOptions={colorPolyline(index)} positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
 
 
