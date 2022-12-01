@@ -18,6 +18,7 @@ const Map = () =>  {
   const navigate = useNavigate();
   const {id} = useParams()
   const [openModal, setOpenModal] = useState(false)
+  const [openModalTrash, setOpenModalTrash] = useState(false)
   const [room, setRoom] = useState([])
   const [dataRoom, setDataRoom] = useState([])
 
@@ -25,6 +26,12 @@ const Map = () =>  {
   useEffect(() => {
     socket.on('dataRoomResponse', (data) => setDataRoom(data))
     setRoom(dataRoom.filter(room => room.idRoom === parseInt(id)))
+
+    socket.on('deletedRoom', (data) => {
+      if(data === parseInt(id)){
+        navigate('/' , {replace: true})
+      }
+    })
   }, [socket, dataRoom])
   const leaveRoom = () => {
     socket.emit('leaveRoom', {
@@ -45,6 +52,14 @@ const Map = () =>  {
     values.date= ""
   }
 
+  const deleteRoom = () => {
+    setOpenModalTrash(!openModalTrash)
+    socket.emit('deleteRoom', {
+      idRoom: parseInt(id),
+    })
+    navigate('/', { replace: true });
+  }
+
   const {handleChange, values, touched, errors, handleBlur, handleSubmit} = useFormik({
     initialValues: {
       date: ""
@@ -63,9 +78,27 @@ const Map = () =>  {
         <button className='button-setting' onClick={() => setOpenModal(!openModal)}>
           <img src={'../images/setting.png'} />
         </button>
+        <button className='button-trash' onClick={() => setOpenModalTrash(!openModalTrash)}>
+          <img src={'../images/corbeille.png'} />
+        </button>
         <ListUser room={room} />
         <Chatbox room={room} />
       </div>
+      {
+        openModalTrash && (
+          <div className={"modal"}>
+            <div className={"modal-container"}>
+              <img src={"/images/black-cross.png"} onClick={()=> setOpenModalTrash(!openModalTrash)}/>
+              <h3>Voulez-vous supprimer la room ?</h3>
+              <div className={"button-container"}>
+                <button className={"trash-no"} onClick={() => setOpenModalTrash(!openModalTrash)}>Non</button>
+                <button className={"trash-yes"} onClick={() => deleteRoom()}>Oui</button>
+              </div>
+
+            </div>
+          </div>
+        )
+      }
       {
         openModal && (
           <div className={"modal"}>

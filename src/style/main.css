@@ -341,8 +341,29 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 .section-map-container .container-right {
   justify-content: space-between;
 }
+.section-map-container .container-right .button-trash {
+  position: absolute;
+  top: 10px;
+  right: 110px;
+  background-color: #40ec19;
+  padding: 8px;
+  border-radius: 9px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.section-map-container .container-right .button-trash img {
+  width: 20px;
+}
+.section-map-container .container-right .button-trash:hover {
+  cursor: pointer;
+  background-color: #109a31;
+}
 .section-map-container .container-right .button-setting {
   position: absolute;
+  transition: 0.3s;
   top: 10px;
   right: 60px;
   background-color: #afafaf;
@@ -362,6 +383,7 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 }
 .section-map-container .container-right .button-leave {
   position: absolute;
+  transition: 0.3s;
   top: 10px;
   right: 10px;
   background-color: #f19d9d;
@@ -452,6 +474,20 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
   height: 300px;
   background-color: #FFFFFF;
   border-radius: 9px;
+}
+.section-map-container .modal-container .button-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.section-map-container .modal-container .button-container .trash-no {
+  background-color: #FFFFFF;
+  border: 1px solid #090754;
+  color: #090754;
+}
+.section-map-container .modal-container .button-container .trash-yes:hover {
+  background-color: #090754;
+  color: #FFFFFF;
 }
 .section-map-container .modal-container img {
   position: absolute;

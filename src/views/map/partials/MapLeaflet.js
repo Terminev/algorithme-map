@@ -12,7 +12,6 @@ const socket = socketIO.connect('http://localhost:4000');
 const MapLeaflet = (room) => {
   const [userPosition, setUserPosition] = React.useState([0, 0]);
   const [position, setPosition] = useState([48.890011, 2.197020])
-  const blueOptions = {color: "blue"}
   const {id} = useParams()
   const [users, setUsers] = useState([])
 
@@ -61,8 +60,6 @@ const MapLeaflet = (room) => {
         eventHandlers={eventHandlers}
         position={position}
         ref={markerRef}>
-        <Popup minWidth={90}>
-        </Popup>
       </Marker>
     )
   }
@@ -75,19 +72,6 @@ const MapLeaflet = (room) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {
-          Restaurants.map((restaurant, index) => {
-            return (
-              <Marker icon={ICON_RESTAU} key={index} position={[restaurant.coordinates[0], restaurant.coordinates[1]]}>
-                <Popup>
-                  {restaurant.name}
-                </Popup>
-              </Marker>
-            )
-          })
-        }
-        <DraggableMarker/>
-
-        {
           users.map((user, index) => {
             return (
                 <>
@@ -99,6 +83,18 @@ const MapLeaflet = (room) => {
                       {user.name}
                     </Popup>
                   </Marker>
+
+                  {
+                    user.positionRestau != null ? (
+                      <Marker icon={ICON_RESTAU} key={index} position={[user.positionRestau[0], user.positionRestau[1]]}>
+                        <Popup>
+                          test
+                        </Popup>
+                      </Marker>
+                    ) :
+                      null
+                  }
+
                   <Polyline key={index} pathOptions={colorPolyline(index)} positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
 
 
@@ -106,6 +102,7 @@ const MapLeaflet = (room) => {
             )
           })
         }
+        <DraggableMarker/>
 
       </MapContainer>
       <ToastContainer
