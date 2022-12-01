@@ -338,6 +338,9 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
   background-color: #cfcef4;
   color: #090754;
 }
+.section-map-container .trash-yes {
+  margin-left: 10px;
+}
 .section-map-container .container-right {
   justify-content: space-between;
 }
