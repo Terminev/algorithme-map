@@ -60,20 +60,21 @@ const Home = () => {
 
 	return (
 		<div className={"section-home"}>
-			<h2>Liste des Room</h2>
+			<h2>Liste des salles</h2>
 			<section className={"section-home-container"}>
-				<button onClick={() => setOpenModal(!openModal)}>Ajouter une room</button>
+				<button onClick={() => setOpenModal(!openModal)}>Ajouter une salle</button>
+				<ul className={"section-home-container-room"}>
 				{ rooms.length > 0 ?
 					rooms.map((room) => {
 						return (
-							<div className={"section-home-container-room"} key={room.idRoom} onClick={() => joinRoom(room.idRoom, room.nameRoom)}>
-								<h3>{room.nameRoom}</h3>
-							</div>
+							<li key={room.idRoom} onClick={() => joinRoom(room.idRoom, room.nameRoom)}>{room.nameRoom}</li>
 						)
 					})
+
 					:
-					<p>Il n'y a aucune room</p>
+					<li className={'no-room'}>Il n'y a aucune salle</li>
 				}
+				</ul>
 			</section>
 
 			{
@@ -81,21 +82,22 @@ const Home = () => {
 					<div className={"modal"}>
 						<div className={"modal-container"}>
 							<img src={"/images/black-cross.png"} onClick={()=> setOpenModal(!openModal)}/>
-							<h3>Ajouter une Room</h3>
+							<h4>Création d'une salle</h4>
 							<form onSubmit={handleSubmit}>
-								<div className={"form-row-element form-row-single-element"}>
+								<div className={"form-row-element form-row-single-element form"}>
 									<InputTextWithLabelFormik
 										id={"name"}
 										errorMessage={errors.name && touched.name &&
-											<p className={"text-primary color-error"}>{errors.name}</p>}
+											<p className={"text-primary color-error text-micro error"}>{errors.name}</p>}
 										onBlur={handleBlur}
 										onChange={handleChange}
 										value={values.name}
-										label={"name"}
-										placeholder={"name"}
+										placeholder={"Nom"}
+										label={"Nom de la salle"}
 										name={"name"}
 										styleSelected={"input-text-custom-secondary " + (errors.name && touched.name ? "input-error" : "")}
 									/>
+									<label className={'text-micro paragraph_bold color-dark- hour'}>Heure du rendez-vous</label>
 									<input
 										type="time"
 										id={"date"}
@@ -105,7 +107,6 @@ const Home = () => {
 										value={values.date}
 										label={"date"}
 										placeholder={"date"}
-
 									/>
 
 								</div>

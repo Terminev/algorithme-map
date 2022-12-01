@@ -28,7 +28,7 @@ $title: ("h1" : 34, "h2" : 34, "h3" : 28, "h4" : 24);
 //Function all paragraph
 $paragraph: ("text-primary" : 16, "text-secondary" : 16, "text-tertiary" : 14, "text-micro" : 12);
 @each $name, $size in $paragraph {
-  p, input,a,button,textarea,span,label, th, td{
+  p, input, a, button, textarea, span, label, th, td, li{
     &.#{$name} {
       font-size: #{$size}px;
       font-family: "Poligon Regular";
