@@ -255,6 +255,8 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 }
 .section-map-container h3 {
   color: #090754;
+  margin-bottom: 5px;
+  margin-top: 55px;
 }
 .section-map-container ul {
   list-style: none;
@@ -296,8 +298,22 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 }
 .section-map-container .container-right .button-leave {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 10px;
+  right: 10px;
+  background-color: #f19d9d;
+  padding: 8px;
+  border-radius: 9px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-map-container .container-right .button-leave img {
+  width: 20px;
+}
+.section-map-container .container-right .button-leave:hover {
+  cursor: pointer;
+  background-color: #f38080;
 }
 .section-map-container .container-right .list-user {
   height: 60vh;
@@ -305,6 +321,38 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 }
 .section-map-container .container-right .chat-box {
   margin: 10px 0;
+}
+.section-map-container .container-right .chat-box .form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid grey;
+}
+.section-map-container .container-right .chat-box .form .message {
+  padding: 8px;
+  border: none;
+}
+.section-map-container .container-right .chat-box .form .message:focus {
+  outline: none;
+}
+.section-map-container .container-right .chat-box .form .sendBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cfcef4;
+  border: none;
+  width: 40px;
+  height: 100%;
+  padding: 8px;
+}
+.section-map-container .container-right .chat-box .form .sendBtn img {
+  width: 20px;
+}
+.section-map-container .container-right .chat-box .form .sendBtn:hover {
+  cursor: pointer;
+  background-color: #9f9df8;
 }
 .section-map-container .container-right .chat-box ul {
   height: 30vh;
