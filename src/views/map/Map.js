@@ -71,7 +71,7 @@ const Map = () =>  {
           <div className={"modal"}>
             <div className={"modal-container"}>
               <img src={"/images/black-cross.png"} onClick={()=> setOpenModal(!openModal)}/>
-              <h3>Editer l'heure de rendez-vous</h3>
+              <h4>Editer l'heure du rendez-vous</h4>
               <form onSubmit={handleSubmit}>
                 <div className={"form-row-element form-row-single-element"}>
                   <input

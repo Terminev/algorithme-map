@@ -85,7 +85,7 @@ const MapLeaflet = (room) => {
             )
           })
         }
-        <DraggableMarker/>
+
 
         {
           users.map((user, index) => {
@@ -106,7 +106,7 @@ const MapLeaflet = (room) => {
             )
           })
         }
-
+        <DraggableMarker/>
       </MapContainer>
       <ToastContainer
         position="top-right"

@@ -3,10 +3,12 @@ import React, {useEffect, useState} from 'react'
 export const Appointment = (room) => {
 
     let userPseudo = localStorage.getItem('pseudo');
-    const [appointmentPosition, setAppointmentPosition]  = useState([48.898, 2.28]);
+    const [appointmentPosition, setAppointmentPosition]  = useState([0, 0]);
     const [userPosition, setUserPosition] = useState([0,0]);
-    const [restauPosition, setRestauPosition] = useState([48.888, 2.287]);
-    const [time, setTime] = useState(0)
+    const [restauPosition, setRestauPosition] = useState([0, 0]);
+    const [timeAppointment, setTimeAppointment] = useState(0);
+    const [time, setTime] = useState(0);
+    const [timeMin, setTimeMin] = useState(0);
 
     // Récupère la postion utilisateur et du restaurant
     useEffect(() => {
@@ -14,10 +16,13 @@ export const Appointment = (room) => {
             room.room[0]["users"].map(user => {
                 if(user.name === userPseudo){
                     setUserPosition(user.positionUser)
-                    // setRestauPosition(user.positionRestau)
+                    setRestauPosition(user.positionRestau)
                 }
             })
+            setAppointmentPosition(room.room[0].appointment)
+            setTimeAppointment(room.room[0].date)
         }
+
     }, [room.room[0]])
 
     // Calcule la distance et le temps que l'utilisateur doit mettre
@@ -27,10 +32,10 @@ export const Appointment = (room) => {
         if(restauPosition){
             distanceUserRestau = getDistance(userPosition[0], userPosition[1], restauPosition[0], restauPosition[1])
             distanceUserAppointment = getDistance(restauPosition[0], restauPosition[1], appointmentPosition[0], appointmentPosition[1])
-        }else{
+        }else {
             distanceUserAppointment = getDistance(userPosition[0], userPosition[1], appointmentPosition[0], appointmentPosition[1])
         }
-        setTime(((distanceUserRestau + distanceUserAppointment) / 5))
+        setTimeMin(((distanceUserRestau + distanceUserAppointment) / 5)*60)
     }, [userPosition, restauPosition, appointmentPosition])
 
     // Converts numeric degrees to radians
@@ -51,14 +56,26 @@ export const Appointment = (room) => {
         return deg * (Math.PI/180)
     }
 
-      const convertTime = (time) => {
-        let hours = Math.floor(time / 60);
-        let minutes = Math.trunc(time * 60);
-        return `${hours}h ${minutes}min`;
-      }
+    useEffect(() => {
+        let stringAppointment = timeAppointment.toString()
+        let timeA = stringAppointment.split(":");
+        let hourA = parseInt(timeA[0]);
+        let minuteA = parseInt(timeA[1]);
+        let totalAppointment = hourA*60 + minuteA;
+
+        let totalLeave = totalAppointment - timeMin;
+        let hours = Math.floor(totalLeave / 60);
+        let minutes = Math.trunc(totalLeave % 60 );
+        if(minutes < 10){
+            minutes = `0${minutes}`
+        }
+        setTime(`${hours}:${minutes}`);
+
+    }, [timeAppointment, timeMin]);
+
 
     return (
-        <h4>Rendez-vous à 13h : tu dois partir {convertTime(time)} avant</h4>
+        <h4 className={'appointment'}>Rendez-vous à {timeAppointment}<br/> {userPseudo}, tu dois partir à {time}</h4>
     )
 }
 
