@@ -36,16 +36,15 @@ const ConnectionForm = () => {
               onBlur={handleBlur}
               onChange={handleChange}
               value={values.pseudonyme}
-              label={"pseudonyme"}
-              placeholder={"Pseudonyme"}
+              label={"Rentrez votre pseudonyme"}
+              placeholder={"Pseudo"}
               name={"pseudonyme"}
               styleSelected={"input-text-custom-secondary " + (errors.pseudonyme && touched.pseudonyme ? "input-error" : "")}
             />
           </div>
           <ButtonWithOnClickAction
             title={"Suivant"}
-            isActive={!isSubmitting}
-            onClick={handleReset}
+            isActive={true}
             styleButton={"btn-default btn-default-primary color-primary btn-default-full-width"}
           />
         </form>

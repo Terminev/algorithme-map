@@ -16,3 +16,5 @@ export const ICON_USER = new icon({
     iconUrl: "../images/user-pin.png",
     iconSize: [35, 35],
 })
+
+export const colorPolyline = (number) => ({color : '#'+Math.floor(Math.random()*0xffffff).toString(16).padStart(number,'0')});
