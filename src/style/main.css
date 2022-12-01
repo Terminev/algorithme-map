@@ -286,7 +286,7 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
   grid-template-columns: repeat(4, 1fr);
   font-family: "Poligon Regular";
 }
-.section-map-container h4 {
+.section-map-container .appointment {
   position: absolute;
   text-align: center;
   top: 20px;
@@ -341,29 +341,8 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 .section-map-container .container-right {
   justify-content: space-between;
 }
-.section-map-container .container-right .button-trash {
-  position: absolute;
-  top: 10px;
-  right: 110px;
-  background-color: #40ec19;
-  padding: 8px;
-  border-radius: 9px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-}
-.section-map-container .container-right .button-trash img {
-  width: 20px;
-}
-.section-map-container .container-right .button-trash:hover {
-  cursor: pointer;
-  background-color: #109a31;
-}
 .section-map-container .container-right .button-setting {
   position: absolute;
-  transition: 0.3s;
   top: 10px;
   right: 60px;
   background-color: #afafaf;
@@ -383,7 +362,6 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 }
 .section-map-container .container-right .button-leave {
   position: absolute;
-  transition: 0.3s;
   top: 10px;
   right: 10px;
   background-color: #f19d9d;
@@ -471,46 +449,54 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
   position: fixed;
   padding: 15px 30px;
   width: 450px;
-  height: 300px;
+  height: 200px;
   background-color: #FFFFFF;
   border-radius: 9px;
 }
-.section-map-container .modal-container .button-container {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-}
-.section-map-container .modal-container .button-container .trash-no {
-  background-color: #FFFFFF;
-  border: 1px solid #090754;
+.section-map-container .modal-container h4 {
+  margin-bottom: 14px;
   color: #090754;
 }
-.section-map-container .modal-container .button-container .trash-yes:hover {
-  background-color: #090754;
-  color: #FFFFFF;
+.section-map-container .modal-container .form, .section-map-container .modal-container .form-row-label-input {
+  display: flex;
+  flex-direction: column;
+}
+.section-map-container .modal-container label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.section-map-container .modal-container .error {
+  margin: 0;
 }
 .section-map-container .modal-container img {
   position: absolute;
   right: 15px;
   top: 15px;
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   cursor: pointer;
+}
+.section-map-container .modal-container input {
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid grey;
+  padding: 8px;
+  width: 100%;
 }
 .section-map-container .modal-container button {
   padding: 15px 30px;
-  border: 1px solid #090754;
   border-radius: 8px;
+  transition: 0.3s;
   background-color: #090754;
   color: #FFFFFF;
   cursor: pointer;
-  margin-top: 16px;
-  transition: 0.3s;
+  margin-top: 25px;
+  border: none;
 }
 .section-map-container .modal-container button:hover {
-  background-color: #FFFFFF;
-  color: #090754;
-  border: solid 1px #090754;
+  cursor: pointer;
+  background-color: #9f9df8;
+  border: none;
 }
 
 /*# sourceMappingURL=main.css.map */
