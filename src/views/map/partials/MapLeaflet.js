@@ -16,6 +16,7 @@ const MapLeaflet = (room) => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
+
     navigator.geolocation.getCurrentPosition((position) => {
       setUserPosition([position.coords.latitude, position.coords.longitude])
     })
@@ -31,6 +32,21 @@ const MapLeaflet = (room) => {
     }
 
   }, [room])
+
+  setInterval(() => {
+    getCurrentPosition()
+  }, 99999999999999999)
+
+  const getCurrentPosition = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setUserPosition([position.coords.latitude, position.coords.longitude])
+    })
+    socket.emit('updatePosition', {
+      idRoom: parseInt(id),
+      position: userPosition,
+      name: localStorage.getItem('pseudo')
+    })
+  }
 
   const DraggableMarker = () => {
 
