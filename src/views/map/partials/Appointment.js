@@ -20,12 +20,6 @@ export const Appointment = (room) => {
         }
     }, [room.room[0]])
 
-
-    // Récupère la position du rendez-vous
-    // useEffect(() => {
-    //     setAppointmentPosition([48.898, 2.28]);
-    // }, [localStorage.getItem("appointmentPosition")])
-
     // Calcule la distance et le temps que l'utilisateur doit mettre
     useEffect(() => {
         let distanceUserRestau = 0

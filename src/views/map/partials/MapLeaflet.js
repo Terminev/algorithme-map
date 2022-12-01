@@ -1,23 +1,33 @@
-import React, {useEffect, useState, useRef, useMemo} from 'react'
-import {MapContainer, Marker, Popup, TileLayer, Polyline} from "react-leaflet";
+import React, {useEffect, useMemo, useRef, useState} from 'react'
+import {MapContainer, Marker, Polyline, Popup, TileLayer} from "react-leaflet";
 import {Restaurants} from "../../../config/Restaurant"
-import {ICON_RESTAU, ICON_DESTINATION, ICON_USER} from '../partials/MarkerIcon'
+import {ICON_DESTINATION, ICON_RESTAU} from '../partials/MarkerIcon'
+import socketIO from 'socket.io-client';
+import {useParams} from "react-router-dom";
+
+const socket = socketIO.connect('http://localhost:4000');
 
 
 const MapLeaflet = (room) => {
   const [userPosition, setUserPosition] = React.useState([0, 0]);
   const [position, setPosition] = useState([48.890011, 2.197020])
   const blueOptions = {color: "blue"}
+  const {id} = useParams()
   const [users, setUsers] = useState([])
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setUserPosition([position.coords.latitude, position.coords.longitude])
-      setPosition([position.coords.latitude, position.coords.longitude])
     })
 
     if (room.room.length > 0) {
       setUsers(room.room[0]["users"])
+      if(room.room[0].appointment != null){
+
+        setPosition(room.room[0].appointment)
+      }else{
+        setPosition([48.890011, 2.197020])
+      }
     }
 
   }, [room])
@@ -31,8 +41,11 @@ const MapLeaflet = (room) => {
           const marker = markerRef.current
           if (marker != null) {
             setPosition(marker.getLatLng())
-            localStorage.setItem("appointmentPosition", position);
-            console.log(position)
+            localStorage.setItem("appointmentPosition", [marker.getLatLng().lat, marker.getLatLng().lng]);
+            socket.emit('setAppointment', {
+              idRoom: parseInt(id),
+              appointment: [marker.getLatLng().lat, marker.getLatLng().lng]
+            })
           }
         },
       }),
@@ -72,7 +85,6 @@ const MapLeaflet = (room) => {
         }
         <DraggableMarker/>
 
-
         {
           users.map((user, index) => {
             return (
@@ -82,6 +94,7 @@ const MapLeaflet = (room) => {
                       position={[user.positionUser[0], user.positionUser[1]]}
                   />
                   <Polyline key={index} pathOptions={blueOptions} positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
+
 
                 </>
             )

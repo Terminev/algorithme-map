@@ -3,9 +3,10 @@ import Chatbox from './partials/Chatbox';
 import ListRestaurant from './partials/ListRestaurant';
 import ListUser from './partials/ListUser';
 import MapLeaflet from './partials/MapLeaflet';
-import socketIO from 'socket.io-client';
 import {useParams} from "react-router-dom";
-import { Appointment } from './partials/Appointment';
+import {Appointment} from './partials/Appointment';
+import socketIO from 'socket.io-client';
+
 const socket = socketIO.connect('http://localhost:4000');
 
 const Map = () =>  {
