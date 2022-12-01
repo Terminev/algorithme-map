@@ -341,6 +341,25 @@ p.text-micro.paragraph_bold, input.text-micro.paragraph_bold, a.text-micro.parag
 .section-map-container .container-right {
   justify-content: space-between;
 }
+.section-map-container .container-right .button-trash {
+  position: absolute;
+  top: 10px;
+  right: 110px;
+  background-color: #b5f6ac;
+  padding: 8px;
+  border-radius: 9px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-map-container .container-right .button-trash img {
+  width: 20px;
+}
+.section-map-container .container-right .button-trash:hover {
+  cursor: pointer;
+  background-color: #74ad6c;
+}
 .section-map-container .container-right .button-setting {
   position: absolute;
   top: 10px;
