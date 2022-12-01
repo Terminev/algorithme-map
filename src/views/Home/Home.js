@@ -54,7 +54,7 @@ const Home = () => {
 	const {handleChange, values, touched, errors, handleBlur, handleSubmit} = useFormik({
 		initialValues: {
 			name: "",
-			date: "",
+			date: ""
 		}, validationSchema: AddRoomValidationSchema ,onSubmit,
 	});
 
