@@ -31,7 +31,9 @@ const Map = () =>  {
       <ListRestaurant />
       <MapLeaflet room={room}/>
       <div className='container-right'>
-        <button className='button-leave' onClick={() => leaveRoom()}>QUITTER</button>
+        <button className='button-leave' onClick={() => leaveRoom()}>
+            <img src={'../images/exit.png'} />
+        </button>
         <ListUser room={room} />
         <Chatbox room={room} />
       </div>

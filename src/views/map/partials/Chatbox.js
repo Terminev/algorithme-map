@@ -3,7 +3,6 @@ import socketIO from 'socket.io-client';
 import {useParams} from "react-router-dom";
 const socket = socketIO.connect('http://localhost:4000');
 
-
 const Chatbox = (room) => {
   const [allMessage, setAllMessage] = useState([]);
   const {id} = useParams()
@@ -37,7 +36,9 @@ const Chatbox = (room) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button className="sendBtn">ENVOYER</button>
+          <button className="sendBtn">
+            <img src={'../images/send.png'} />
+          </button>
         </form>
       <ul>
       { allMessage.map(message =>  (

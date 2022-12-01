@@ -42,7 +42,6 @@ const MapLeaflet = (room) => {
           if (marker != null) {
             setPosition(marker.getLatLng())
             localStorage.setItem("appointmentPosition", [marker.getLatLng().lat, marker.getLatLng().lng]);
-            //setAppointment
             socket.emit('setAppointment', {
               idRoom: parseInt(id),
               appointment: [marker.getLatLng().lat, marker.getLatLng().lng]
@@ -52,6 +51,7 @@ const MapLeaflet = (room) => {
       }),
       [],
     )
+
     return (
       <Marker
         icon={ICON_DESTINATION}
@@ -88,8 +88,15 @@ const MapLeaflet = (room) => {
         {
           users.map((user, index) => {
             return (
-              <Polyline key={index} pathOptions={blueOptions}
-                        positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
+                <>
+                  <Marker
+                      icon={ICON_USER}
+                      position={[user.positionUser[0], user.positionUser[1]]}
+                  />
+                  <Polyline key={index} pathOptions={blueOptions} positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
+
+
+                </>
             )
           })
         }
