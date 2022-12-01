@@ -22,8 +22,8 @@ const MapLeaflet = (room) => {
 
     if (room.room.length > 0) {
       setUsers(room.room[0]["users"])
-      console.log(room.room)
       if(room.room[0].appointment != null){
+
         setPosition(room.room[0].appointment)
       }else{
         setPosition([48.890011, 2.197020])
@@ -52,7 +52,6 @@ const MapLeaflet = (room) => {
       }),
       [],
     )
-    console.log(position)
     return (
       <Marker
         icon={ICON_DESTINATION}

@@ -13,7 +13,7 @@ const ConnectionForm = () => {
   }
 
 
-  const {handleChange, values, touched, isSubmitting, errors, handleBlur, handleSubmit} = useFormik({
+  const {handleChange, values, touched, isSubmitting, errors, handleBlur, handleReset, handleSubmit} = useFormik({
     initialValues: {
       pseudonyme: ""
     }, validationSchema: LoginValidationSchema, onSubmit,
@@ -45,6 +45,7 @@ const ConnectionForm = () => {
           <ButtonWithOnClickAction
             title={"Suivant"}
             isActive={!isSubmitting}
+            onClick={handleReset}
             styleButton={"btn-default btn-default-primary color-primary btn-default-full-width"}
           />
         </form>
