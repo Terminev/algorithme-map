@@ -20,7 +20,6 @@ const Home = () => {
 			setUserPosition([position.coords.latitude, position.coords.longitude])
 		})
 		socket.on('dataRoomResponse', (data) => setRooms(data))
-		console.log(rooms)
 	}, [socket, rooms])
 
 
