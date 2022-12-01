@@ -5,6 +5,7 @@ import {useFormik} from "formik";
 import {AddRoomValidationSchema} from "../../schemas/Home/AddRoomSchema";
 import InputTextWithLabelFormik from "../../components/atoms/InputTextWithLabelFormik";
 import ButtonWithOnClickAction from "../../components/atoms/ButtonWithOnClickAction";
+import {toast, ToastContainer} from "react-toastify";
 
 const socket = socketIO.connect('http://localhost:4000');
 
@@ -31,6 +32,7 @@ const Home = () => {
 			date: values.date,
 			idRoom: rooms.length + 1,
 		})
+		toast.success('🔥 La room a bien été créée !')
 
 		values.name = ""
 		values.date= ""
@@ -117,7 +119,18 @@ const Home = () => {
 					</div>
 				)
 			}
-
+			<ToastContainer
+				position="top-right"
+				autoClose={2000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="colored"
+			/>
 		</div>
 	);
 };
