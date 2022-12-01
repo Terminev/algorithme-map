@@ -72,10 +72,18 @@ const MapLeaflet = (room) => {
         }
         <DraggableMarker/>
 
+
         {
           users.map((user, index) => {
             return (
-              <Polyline key={index} pathOptions={blueOptions} positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
+                <>
+                  <Marker
+                      icon={ICON_USER}
+                      position={[user.positionUser[0], user.positionUser[1]]}
+                  />
+                  <Polyline key={index} pathOptions={blueOptions} positions={user.positionRestau != null ? [user.positionUser, user.positionRestau, position] : [user.positionUser, position]}/>
+
+                </>
             )
           })
         }

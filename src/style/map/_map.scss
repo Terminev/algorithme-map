@@ -16,11 +16,12 @@
     left: 50%;
     z-index: 999;
     border-radius: 9px;
-
   }
 
   h3{
     color: #090754;
+    margin-bottom: 5px;
+    margin-top: 55px;
   }
 
   ul{
@@ -42,8 +43,8 @@
       margin: 10px;
       width: 200px;
     }
-  
   }
+
   .mapLeaflet{
     grid-column: 2 / 4;
 
@@ -70,8 +71,24 @@
 
     .button-leave{
       position: absolute;
-      top: 2px;
-      right: 2px;
+      top: 10px;
+      right: 10px;
+      background-color: #f19d9d;
+      padding: 8px;
+      border-radius: 9px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img{
+        width: 20px;
+      }
+
+      &:hover{
+        cursor: pointer;
+        background-color: #f38080;
+      }
     }
 
     .list-user{
@@ -81,6 +98,45 @@
 
     .chat-box{
       margin: 10px 0;
+
+      .form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid grey;
+
+        .message{
+          padding: 8px;
+          border: none;
+
+          &:focus{
+            outline: none;
+          }
+        }
+
+        .sendBtn{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #cfcef4;
+          border: none;
+          width: 40px;
+          height: 100%;
+          padding: 8px;
+
+
+          img{
+            width: 20px;
+          }
+
+          &:hover{
+            cursor: pointer;
+            background-color: #9f9df8;
+          }
+        }
+      }
 
       ul{
         height: 30vh;
