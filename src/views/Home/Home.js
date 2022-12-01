@@ -4,7 +4,6 @@ import socketIO from 'socket.io-client';
 const socket = socketIO.connect('http://localhost:4000');
 
 const Home = () => {
-  const [openModal, setOpenModal] = useState(false);
   const [userPosition, setUserPosition] = useState([0,0])
   const navigate = useNavigate()
 

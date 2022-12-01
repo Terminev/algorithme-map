@@ -26,7 +26,6 @@ const Chatbox = (room) => {
     }
     setMessage('');
 
-    console.log(allMessage)
   };
   return (
     <div className={"chat-box"}>
