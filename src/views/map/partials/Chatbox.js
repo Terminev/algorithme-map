@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import socketIO from 'socket.io-client';
 import {useParams} from "react-router-dom";
+import {toast, ToastContainer} from "react-toastify";
 const socket = socketIO.connect('http://localhost:4000');
 
 const Chatbox = (room) => {
@@ -22,6 +23,7 @@ const Chatbox = (room) => {
         nameUser: localStorage.getItem('pseudo'),
         idRoom: parseInt(id)
       });
+      toast.success('🔥 Message envoyé !')
     }
     setMessage('');
 
@@ -49,8 +51,19 @@ const Chatbox = (room) => {
         )
       ) }
       </ul>
-      
-      
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
     
   );
