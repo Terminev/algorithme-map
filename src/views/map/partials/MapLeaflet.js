@@ -4,6 +4,7 @@ import {Restaurants} from "../../../config/Restaurant"
 import {ICON_DESTINATION, ICON_RESTAU} from '../partials/MarkerIcon'
 import socketIO from 'socket.io-client';
 import {useParams} from "react-router-dom";
+import {toast, ToastContainer} from "react-toastify";
 
 const socket = socketIO.connect('http://localhost:4000');
 
@@ -47,6 +48,7 @@ const MapLeaflet = (room) => {
               idRoom: parseInt(id),
               appointment: [marker.getLatLng().lat, marker.getLatLng().lng]
             })
+            toast.success('La position a bien été enregistrée !')
           }
         },
       }),
@@ -95,6 +97,18 @@ const MapLeaflet = (room) => {
         }
 
       </MapContainer>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   )
 }
