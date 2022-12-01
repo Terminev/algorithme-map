@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react'
 import {MapContainer, Marker, Polyline, Popup, TileLayer} from "react-leaflet";
 import {Restaurants} from "../../../config/Restaurant"
-import {ICON_DESTINATION, ICON_RESTAU} from '../partials/MarkerIcon'
+import {ICON_DESTINATION, ICON_RESTAU, ICON_USER} from '../partials/MarkerIcon'
 import socketIO from 'socket.io-client';
 import {useParams} from "react-router-dom";
 
