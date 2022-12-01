@@ -119,6 +119,50 @@ const Home = () => {
 					</div>
 				)
 			}
+
+			{
+				openModal && (
+					<div className={"modal"}>
+						<div className={"modal-container"}>
+							<img src={"/images/black-cross.png"} onClick={()=> setOpenModal(!openModal)}/>
+							<h3>Ajouter une Room</h3>
+							<form onSubmit={handleSubmit}>
+								<div className={"form-row-element form-row-single-element"}>
+									<InputTextWithLabelFormik
+										id={"name"}
+										errorMessage={errors.name && touched.name &&
+											<p className={"text-primary color-error"}>{errors.name}</p>}
+										onBlur={handleBlur}
+										onChange={handleChange}
+										value={values.name}
+										label={"name"}
+										placeholder={"name"}
+										name={"name"}
+										styleSelected={"input-text-custom-secondary " + (errors.name && touched.name ? "input-error" : "")}
+									/>
+									<input
+										type="time"
+										id={"date"}
+										name={"date"}
+										onBlur={handleBlur}
+										onChange={handleChange}
+										value={values.date}
+										label={"date"}
+										placeholder={"date"}
+
+									/>
+
+								</div>
+								<ButtonWithOnClickAction
+									title={"Suivant"}
+									isActive={true}
+									styleButton={"btn-default btn-default-primary color-primary btn-default-full-width"}
+								/>
+							</form>
+						</div>
+					</div>
+				)
+			}
 			<ToastContainer
 				position="top-right"
 				autoClose={2000}
