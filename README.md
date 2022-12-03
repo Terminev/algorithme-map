@@ -8,6 +8,11 @@ Cloner le projet
 git clone git@github.com:Terminev/algorithme-map.git
 ```
 
+Installer les dépendances
+```
+npm install
+```
+
 Installer React
 ```
 npm install -g react-cli react

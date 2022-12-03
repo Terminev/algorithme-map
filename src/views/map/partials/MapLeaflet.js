@@ -1,6 +1,5 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react'
 import {MapContainer, Marker, Polyline, Popup, TileLayer} from "react-leaflet";
-import {Restaurants} from "../../../config/Restaurant"
 import {ICON_DESTINATION, ICON_RESTAU, ICON_USER, colorPolyline} from '../partials/MarkerIcon'
 import socketIO from 'socket.io-client';
 import {useParams} from "react-router-dom";
@@ -10,8 +9,8 @@ const socket = socketIO.connect('http://localhost:4000');
 
 
 const MapLeaflet = (room) => {
-  const [userPosition, setUserPosition] = React.useState([0, 0]);
-  const [position, setPosition] = useState([48.890011, 2.197020])
+  const [userPosition, setUserPosition] = useState([0, 0]);
+  const [position, setPosition] = useState([48.890011, 2.197020]);
   const {id} = useParams()
   const [users, setUsers] = useState([])
 
@@ -35,7 +34,7 @@ const MapLeaflet = (room) => {
 
   setInterval(() => {
     getCurrentPosition()
-  }, 99999999999999999)
+  }, 300000)
 
   const getCurrentPosition = () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -82,7 +81,7 @@ const MapLeaflet = (room) => {
 
   return (
     <div className={"mapLeaflet"}>
-      <MapContainer className={'map'} center={[48.890011, 2.197020]} zoom={13} scrollWheelZoom={false}>
+      <MapContainer className={'map'} center={[48.890011, 2.197020]} zoom={13} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
